@@ -54,21 +54,7 @@ function startLevel(timeBeforeLevelStarts = 700) {
      2. When the player fails, tell the player how many 'levels' they cleared. */
 
     //EXAMPLE SOLUTION: 
-    let lastClr = ""; //Challenge 1
-    for (let i = 0; i < sequenceLength; i++) {
-      setTimeout(() => {
-        let randomButton = buttons[Math.floor(Math.random() * buttons.length)];
-        
-        while (randomButton === lastClr) {//Challenge 1
-          randomButton = buttons[Math.floor(Math.random() * buttons.length)];
-        }
-        lastClr = randomButton;//Challenge 1
-
-        highlightButton(randomButton);
-        levelSequence.push(randomButton);
-      }, i * 1000);
-    }
-
+    
   }, timeBeforeLevelStarts);
 }
 
@@ -80,24 +66,13 @@ function btnClicked(clr) {
   //Add code here to handle what happens when a button is clicked.
   //Either you check the input every time the player presses a button, or you check it when the player has pressed the last button in the sequence.
 
-  //EXAMPLE SOLUTION:
-  playerInput.push(clr);
-  if (playerInput.length === levelSequence.length) {
-    checkPlayerInput();
-  }
 }
 
 function checkPlayerInput() {
   // Add your code here to check if the player input matches the level sequence. If it does, increment the level and start the next level. 
   //If not, call the gameOver function and add logic to reset the game.
 
-  //EXAMPLE SOLUTION:
-  if (levelSequence.every((val, index) => val === playerInput[index])) {
-    sequenceLength++;
-    startLevel();
-  } else {
-    gameOver();
-  }
+
 }
 
 function gameOver() {
